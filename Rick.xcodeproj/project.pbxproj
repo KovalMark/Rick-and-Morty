@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF163EEE2922D2FA000108CD /* UIImage+noir.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF163EED2922D2FA000108CD /* UIImage+noir.swift */; };
+		BF163EF02922E2DA000108CD /* UIImageView+loadImageNoire.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF163EEF2922E2DA000108CD /* UIImageView+loadImageNoire.swift */; };
 		BFE5C0CA29224BE10086E989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5C0C929224BE10086E989 /* AppDelegate.swift */; };
 		BFE5C0CC29224BE10086E989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5C0CB29224BE10086E989 /* SceneDelegate.swift */; };
 		BFE5C0D329224BE20086E989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE5C0D229224BE20086E989 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF163EED2922D2FA000108CD /* UIImage+noir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+noir.swift"; sourceTree = "<group>"; };
+		BF163EEF2922E2DA000108CD /* UIImageView+loadImageNoire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImageNoire.swift"; sourceTree = "<group>"; };
 		BFE5C0C629224BE10086E989 /* Rick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE5C0C929224BE10086E989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFE5C0CB29224BE10086E989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				BFE5C0F92922A88C0086E989 /* UIImage.swift */,
 				BFE5C0FD2922B1B80086E989 /* UITableViewCell+showAlert.swift */,
 				BFE5C0FF2922B34D0086E989 /* NSObject+lock.swift */,
+				BF163EED2922D2FA000108CD /* UIImage+noir.swift */,
+				BF163EEF2922E2DA000108CD /* UIImageView+loadImageNoire.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -241,10 +247,12 @@
 				BFE5C0F829228E050086E989 /* StartViewController+UITableViewDataSource.swift in Sources */,
 				BFE5C0DE29224CAC0086E989 /* StartViewController.swift in Sources */,
 				BFE5C0EF292261390086E989 /* DataModel.swift in Sources */,
+				BF163EF02922E2DA000108CD /* UIImageView+loadImageNoire.swift in Sources */,
 				BFE5C0FE2922B1B80086E989 /* UITableViewCell+showAlert.swift in Sources */,
 				BFE5C0FA2922A88C0086E989 /* UIImage.swift in Sources */,
 				BFE5C0E429224ED80086E989 /* Constants.swift in Sources */,
 				BFE5C0ED29225F3F0086E989 /* UIImageView+loadImage.swift in Sources */,
+				BF163EEE2922D2FA000108CD /* UIImage+noir.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +413,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -438,7 +446,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

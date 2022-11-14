@@ -14,6 +14,15 @@ final class StartViewController: UIViewController {
     var characters: [RickCharacter] = []
     private let service = DataService()
     
+    let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.color = .black
+        indicator.hidesWhenStopped = true
+        indicator.transform = CGAffineTransform(scaleX: 2, y: 2)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+    
     private let titleTable: UILabel = {
         let label = UILabel()
         label.text = Constants.Strings.titleTable
@@ -36,6 +45,7 @@ final class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.startAnimating()
         setupView()
         setupConstraints()
         configData()
@@ -44,11 +54,13 @@ final class StartViewController: UIViewController {
     // MARK: - Private methods
     
     private func configData() {
+        activityIndicator.startAnimating()
         service.addData(page: Constants.Network.pageNumber) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.characters.append(contentsOf: data)
                 DispatchQueue.main.async {
+                    self?.activityIndicator.stopAnimating()
                     self?.personTableView.reloadData()
                 }
             case .failure(let error):
@@ -59,6 +71,7 @@ final class StartViewController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .basicWhite
+        view.addSubview(activityIndicator)
         view.addSubview(titleTable)
         view.addSubview(personTableView)
         personTableView.delegate = self
@@ -67,6 +80,9 @@ final class StartViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
             titleTable.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24),
             titleTable.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
             titleTable.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 230),

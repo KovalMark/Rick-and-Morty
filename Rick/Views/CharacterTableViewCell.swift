@@ -12,16 +12,18 @@ final class CharacterTableViewCell: UITableViewCell {
     static let identifier = "characterCell"
     
     let avatarImage: UIImageView = {
-        let characterImageView = UIImageView()
-        characterImageView.clipsToBounds = true
-        characterImageView.layer.cornerRadius = 40
-        characterImageView.translatesAutoresizingMaskIntoConstraints = false
-        return characterImageView
+        let avatarImage = UIImageView()
+        avatarImage.clipsToBounds = true
+        avatarImage.layer.cornerRadius = 40
+        avatarImage.translatesAutoresizingMaskIntoConstraints = false
+        return avatarImage
     }()
     
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .basicBlack
+        label.adjustsFontSizeToFitWidth = true
+        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         label.font = UIFont.systemFont(ofSize: 21)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -75,6 +77,18 @@ final class CharacterTableViewCell: UITableViewCell {
         return label
     }()
     
+    let statusLabel: UILabel = {
+        let label = UILabel()
+        label.adjustsFontSizeToFitWidth = true
+        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        label.textAlignment = .center
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 10
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -97,7 +111,7 @@ final class CharacterTableViewCell: UITableViewCell {
         contentView.addSubview(watchButton)
         contentView.addSubview(locationImage)
         contentView.addSubview(locationLabel)
-//        contentView.addSubview(aliveStatusLabel)
+        contentView.addSubview(statusLabel)
     }
     
     private func setupConstraints() {
@@ -108,6 +122,7 @@ final class CharacterTableViewCell: UITableViewCell {
             
             nameLabel.leftAnchor.constraint(equalTo: avatarImage.rightAnchor, constant: 18),
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            nameLabel.widthAnchor.constraint(equalToConstant: 170),
             
             speciesLabel.leftAnchor.constraint(equalTo: avatarImage.rightAnchor, constant: 18),
             speciesLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
@@ -126,10 +141,11 @@ final class CharacterTableViewCell: UITableViewCell {
             locationLabel.leftAnchor.constraint(equalTo: locationImage.rightAnchor, constant: 8),
             locationLabel.topAnchor.constraint(equalTo: watchButton.bottomAnchor, constant: 12),
             
-//            aliveStatusLabel.leftAnchor.constraint(equalTo: nameLabel.rightAnchor, constant: 49),
-//            aliveStatusLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-//            aliveStatusLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 24),
-            
+            statusLabel.leftAnchor.constraint(equalTo: nameLabel.rightAnchor, constant: 16),
+            statusLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            statusLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -24),
+            statusLabel.widthAnchor.constraint(equalToConstant: 82),
+            statusLabel.heightAnchor.constraint(equalToConstant: 25),
         ])
     }
 }
