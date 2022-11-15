@@ -10,7 +10,7 @@ import UIKit
 extension UIImage{
     var noir: UIImage? {
         let context = CIContext(options: nil)
-        guard let currentFilter = CIFilter(name: "CIPhotoEffectNoir") else { return nil }
+        guard let currentFilter = CIFilter(name: Constants.Strings.noirStyle) else { return nil }
         currentFilter.setValue(CIImage(image: self), forKey: kCIInputImageKey)
         if let output = currentFilter.outputImage,
            let cgImage = context.createCGImage(output, from: output.extent) {

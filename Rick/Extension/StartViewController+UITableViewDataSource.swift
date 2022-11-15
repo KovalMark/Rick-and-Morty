@@ -17,26 +17,26 @@ extension StartViewController: UITableViewDataSource {
         let characters = characters[indexPath.row]
         
         cell.nameLabel.text = characters.name
-        cell.speciesLabel.text = characters.species + ", "
+        cell.speciesLabel.text = characters.species + Constants.Strings.comma
         cell.genderLabel.text = characters.gender
         cell.locationLabel.text = characters.location.name
         cell.statusLabel.text = characters.status
         
-        if cell.statusLabel.text == "Alive" {
-            cell.avatarImage.loadImage(with: characters.image)
+        if cell.statusLabel.text == Constants.Strings.aliveDown {
+            cell.avatarImage.loadImage(with: characters.image, noirStyle: false)
             cell.statusLabel.textColor = .textGreen
             cell.statusLabel.backgroundColor = .backgroundGreen
-            cell.statusLabel.text = "ALIVE"
-        } else if cell.statusLabel.text == "Dead" {
-            cell.avatarImage.loadImageNoire(with: characters.image)
+            cell.statusLabel.text = Constants.Strings.aliveUp
+        } else if cell.statusLabel.text == Constants.Strings.deadDown {
+            cell.avatarImage.loadImage(with: characters.image, noirStyle: true)
             cell.statusLabel.textColor = .textRed
             cell.statusLabel.backgroundColor = .backgroundRed
-            cell.statusLabel.text = "DEAD"
+            cell.statusLabel.text = Constants.Strings.deadUp
         } else {
-            cell.avatarImage.loadImage(with: characters.image)
+            cell.avatarImage.loadImage(with: characters.image, noirStyle: false)
             cell.statusLabel.textColor = .textGray
             cell.statusLabel.backgroundColor = .backgroundGray
-            cell.statusLabel.text = "UNKNOWN"
+            cell.statusLabel.text = Constants.Strings.unknownUp
         }
         return cell
     }

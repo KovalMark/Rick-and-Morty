@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BF163EEE2922D2FA000108CD /* UIImage+noir.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF163EED2922D2FA000108CD /* UIImage+noir.swift */; };
-		BF163EF02922E2DA000108CD /* UIImageView+loadImageNoire.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF163EEF2922E2DA000108CD /* UIImageView+loadImageNoire.swift */; };
+		BF163EF02922E2DA000108CD /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF163EEF2922E2DA000108CD /* UIImageView+loadImage.swift */; };
+		BF67201629236749009641C7 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF67201529236749009641C7 /* CustomLabel.swift */; };
 		BFE5C0CA29224BE10086E989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5C0C929224BE10086E989 /* AppDelegate.swift */; };
 		BFE5C0CC29224BE10086E989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5C0CB29224BE10086E989 /* SceneDelegate.swift */; };
 		BFE5C0D329224BE20086E989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE5C0D229224BE20086E989 /* Assets.xcassets */; };
@@ -17,7 +18,6 @@
 		BFE5C0E429224ED80086E989 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5C0E329224ED80086E989 /* Constants.swift */; };
 		BFE5C0E62922504F0086E989 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5C0E52922504F0086E989 /* CharacterTableViewCell.swift */; };
 		BFE5C0E92922512D0086E989 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5C0E82922512D0086E989 /* UIColor.swift */; };
-		BFE5C0ED29225F3F0086E989 /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5C0EC29225F3F0086E989 /* UIImageView+loadImage.swift */; };
 		BFE5C0EF292261390086E989 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5C0EE292261390086E989 /* DataModel.swift */; };
 		BFE5C0F1292262290086E989 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5C0F0292262290086E989 /* DataService.swift */; };
 		BFE5C0F629228DCC0086E989 /* StartViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5C0F529228DCC0086E989 /* StartViewController+UITableViewDelegate.swift */; };
@@ -29,7 +29,8 @@
 
 /* Begin PBXFileReference section */
 		BF163EED2922D2FA000108CD /* UIImage+noir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+noir.swift"; sourceTree = "<group>"; };
-		BF163EEF2922E2DA000108CD /* UIImageView+loadImageNoire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImageNoire.swift"; sourceTree = "<group>"; };
+		BF163EEF2922E2DA000108CD /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
+		BF67201529236749009641C7 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		BFE5C0C629224BE10086E989 /* Rick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE5C0C929224BE10086E989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFE5C0CB29224BE10086E989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		BFE5C0E329224ED80086E989 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BFE5C0E52922504F0086E989 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		BFE5C0E82922512D0086E989 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		BFE5C0EC29225F3F0086E989 /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
 		BFE5C0EE292261390086E989 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		BFE5C0F0292262290086E989 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		BFE5C0F529228DCC0086E989 /* StartViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StartViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
@@ -61,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF67201729236A7A009641C7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BFE5C0E52922504F0086E989 /* CharacterTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		BFE5C0BD29224BE10086E989 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +121,7 @@
 		BFE5C0E129224D800086E989 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BF67201729236A7A009641C7 /* Cells */,
 				BFE5C0DD29224CAC0086E989 /* StartViewController.swift */,
 			);
 			path = Controllers;
@@ -132,12 +141,11 @@
 			isa = PBXGroup;
 			children = (
 				BFE5C0E82922512D0086E989 /* UIColor.swift */,
-				BFE5C0EC29225F3F0086E989 /* UIImageView+loadImage.swift */,
 				BFE5C0F92922A88C0086E989 /* UIImage.swift */,
-				BFE5C0FD2922B1B80086E989 /* UITableViewCell+showAlert.swift */,
-				BFE5C0FF2922B34D0086E989 /* NSObject+lock.swift */,
 				BF163EED2922D2FA000108CD /* UIImage+noir.swift */,
-				BF163EEF2922E2DA000108CD /* UIImageView+loadImageNoire.swift */,
+				BF163EEF2922E2DA000108CD /* UIImageView+loadImage.swift */,
+				BFE5C0FF2922B34D0086E989 /* NSObject+lock.swift */,
+				BFE5C0FD2922B1B80086E989 /* UITableViewCell+showAlert.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -153,7 +161,7 @@
 		BFE5C0EB29225EAD0086E989 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BFE5C0E52922504F0086E989 /* CharacterTableViewCell.swift */,
+				BF67201529236749009641C7 /* CustomLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,14 +252,14 @@
 				BFE5C0E92922512D0086E989 /* UIColor.swift in Sources */,
 				BFE5C0CC29224BE10086E989 /* SceneDelegate.swift in Sources */,
 				BFE5C0E62922504F0086E989 /* CharacterTableViewCell.swift in Sources */,
+				BF67201629236749009641C7 /* CustomLabel.swift in Sources */,
 				BFE5C0F829228E050086E989 /* StartViewController+UITableViewDataSource.swift in Sources */,
 				BFE5C0DE29224CAC0086E989 /* StartViewController.swift in Sources */,
 				BFE5C0EF292261390086E989 /* DataModel.swift in Sources */,
-				BF163EF02922E2DA000108CD /* UIImageView+loadImageNoire.swift in Sources */,
+				BF163EF02922E2DA000108CD /* UIImageView+loadImage.swift in Sources */,
 				BFE5C0FE2922B1B80086E989 /* UITableViewCell+showAlert.swift in Sources */,
 				BFE5C0FA2922A88C0086E989 /* UIImage.swift in Sources */,
 				BFE5C0E429224ED80086E989 /* Constants.swift in Sources */,
-				BFE5C0ED29225F3F0086E989 /* UIImageView+loadImage.swift in Sources */,
 				BF163EEE2922D2FA000108CD /* UIImage+noir.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

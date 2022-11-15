@@ -13,6 +13,7 @@ final class StartViewController: UIViewController {
     
     var characters: [RickCharacter] = []
     private let service = DataService()
+    private let titleTable = CustomLabel(frame: .zero)
     
     let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
@@ -21,14 +22,6 @@ final class StartViewController: UIViewController {
         indicator.transform = CGAffineTransform(scaleX: 2, y: 2)
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
-    }()
-    
-    private let titleTable: UILabel = {
-        let label = UILabel()
-        label.text = Constants.Strings.titleTable
-        label.font = UIFont.systemFont(ofSize: 31)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
     }()
     
     private let personTableView: UITableView = {
@@ -45,7 +38,6 @@ final class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.startAnimating()
         setupView()
         setupConstraints()
         configData()
@@ -57,14 +49,14 @@ final class StartViewController: UIViewController {
         activityIndicator.startAnimating()
         service.addData(page: Constants.Network.pageNumber) { [weak self] result in
             switch result {
-            case .success(let data):
-                self?.characters.append(contentsOf: data)
+            case .success(let decodeData):
+                self?.characters = decodeData
                 DispatchQueue.main.async {
                     self?.activityIndicator.stopAnimating()
                     self?.personTableView.reloadData()
                 }
             case .failure(let error):
-                print("error is \(error)")
+                print(error.localizedDescription)
             }
         }
     }
@@ -73,6 +65,8 @@ final class StartViewController: UIViewController {
         view.backgroundColor = .basicWhite
         view.addSubview(activityIndicator)
         view.addSubview(titleTable)
+        titleTable.text = Constants.Strings.titleTable
+        titleTable.font = UIFont.systemFont(ofSize: 31)
         view.addSubview(personTableView)
         personTableView.delegate = self
         personTableView.dataSource = self

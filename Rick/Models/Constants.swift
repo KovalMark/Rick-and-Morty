@@ -15,6 +15,15 @@ enum Constants {
         static let titleTable = "Characters"
         static let empty = ""
         static let watchButton = "Watch episodes"
+        static let noirStyle = "CIPhotoEffectNoir"
+        static let comma = ", "
+        static let aliveDown = "Alive"
+        static let aliveUp = "ALIVE"
+        static let deadDown = "Dead"
+        static let deadUp = "DEAD"
+        static let unknownUp = "UNKNOWN"
+        static let identifier = "characterCell"
+        static let orientation = "orientation"
     }
     
     // MARK: - Network
@@ -22,6 +31,7 @@ enum Constants {
     enum Network {
         static let urlString = "https://rickandmortyapi.com/api/character?page="
         static let pageNumber = 1
+        static let heightForRowAt = 140
     }
     
     // MARK: - Errors

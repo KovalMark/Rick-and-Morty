@@ -1,14 +1,14 @@
 //
-//  UIImageView+loadImage.swift
+//  UIImageView+loadImage+noire.swift
 //  Rick
 //
-//  Created by Марк Коваль on 14/11/2022.
+//  Created by Марк Коваль on 15/11/2022.
 //
 
 import UIKit
 
 extension UIImageView {
-    func loadImage(with url: String, placeHolder: UIImage? = nil) {
+    func loadImage(with url: String, placeHolder: UIImage? = nil, noirStyle: Bool) {
         self.image = nil
         let imageServerUrl = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? Constants.Strings.empty
         if let url = URL(string: imageServerUrl) {
@@ -22,7 +22,11 @@ extension UIImageView {
                 DispatchQueue.main.async {
                     if let data = data {
                         if let downloadImage = UIImage(data: data) {
-                            self.image = downloadImage
+                            if noirStyle == true {
+                                self.image = downloadImage.noir
+                            } else {
+                                self.image = downloadImage
+                            }
                         }
                     }
                 }

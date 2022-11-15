@@ -9,7 +9,14 @@ import UIKit
 
 final class CharacterTableViewCell: UITableViewCell {
     
-    static let identifier = "characterCell"
+    // MARK: - Properties
+    
+    static let identifier = Constants.Strings.identifier
+    let speciesLabel = CustomLabel(frame: .zero)
+    let genderLabel = CustomLabel(frame: .zero)
+    let nameLabel = CustomLabel(frame: .zero)
+    let locationLabel = CustomLabel(frame: .zero)
+    let statusLabel = CustomLabel(frame: .zero)
     
     let avatarImage: UIImageView = {
         let avatarImage = UIImageView()
@@ -18,33 +25,7 @@ final class CharacterTableViewCell: UITableViewCell {
         avatarImage.translatesAutoresizingMaskIntoConstraints = false
         return avatarImage
     }()
-    
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .basicBlack
-        label.adjustsFontSizeToFitWidth = true
-        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        label.font = UIFont.systemFont(ofSize: 21)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let speciesLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .basicBlack
-        label.font = UIFont.systemFont(ofSize: 17)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let genderLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .basicBlack
-        label.font = UIFont.systemFont(ofSize: 17)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+
     let watchButton: UIButton = {
         var filled = UIButton.Configuration.filled()
         filled.title = Constants.Strings.watchButton
@@ -69,25 +50,7 @@ final class CharacterTableViewCell: UITableViewCell {
         return locationImage
     }()
     
-    let locationLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .textGray
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let statusLabel: UILabel = {
-        let label = UILabel()
-        label.adjustsFontSizeToFitWidth = true
-        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        label.textAlignment = .center
-        label.clipsToBounds = true
-        label.layer.cornerRadius = 10
-        label.font = UIFont.systemFont(ofSize: 17)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    // MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -99,6 +62,8 @@ final class CharacterTableViewCell: UITableViewCell {
         fatalError(Constants.Errors.initError)
     }
     
+    // MARK: - Private methods
+    
     @objc private func tapWatchButton() {
         showAlert()
     }
@@ -106,12 +71,19 @@ final class CharacterTableViewCell: UITableViewCell {
     private func setupView() {
         contentView.addSubview(avatarImage)
         contentView.addSubview(nameLabel)
+        nameLabel.font = UIFont.systemFont(ofSize: 21)
         contentView.addSubview(speciesLabel)
         contentView.addSubview(genderLabel)
         contentView.addSubview(watchButton)
         contentView.addSubview(locationImage)
         contentView.addSubview(locationLabel)
+        locationLabel.textColor = .textGray
+        locationLabel.font = UIFont.systemFont(ofSize: 12)
         contentView.addSubview(statusLabel)
+        statusLabel.textAlignment = .center
+        statusLabel.clipsToBounds = true
+        statusLabel.layer.cornerRadius = 10
+        statusLabel.font = UIFont.systemFont(ofSize: 17)
     }
     
     private func setupConstraints() {

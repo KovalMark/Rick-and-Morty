@@ -10,30 +10,17 @@ import Foundation
 final class DataService {
     func addData(page: Int, completion: @escaping (Result<[RickCharacter], Error>) -> Void) {
         guard let url = URL(string: Constants.Network.urlString + "\(page)") else { return }
-        
-        let dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("error is \(error)")
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else {
+                completion(.failure(Constants.Errors.error))
                 return
             }
-            
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200..<300).contains(httpResponse.statusCode),
-                  let data = data else {
+            guard let result = try? JSONDecoder().decode(DataModel.self, from: data) else {
+                completion(.failure(Constants.Errors.error))
                 return
             }
-            
-            do {
-                let characterModel = try JSONDecoder().decode(DataModel.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(characterModel.results))
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completion(.failure(error))
-                }
-            }
+            completion(.success(result.results))
         }
-        dataTask.resume()
+        .resume()
     }
 }
